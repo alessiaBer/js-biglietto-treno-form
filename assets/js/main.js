@@ -12,10 +12,45 @@ Iniziamo implementando il programma senza alcuna estetica ma usando esclusivamen
 realizziamo le specifiche scritte sopra.
 La risposta finale (o output) sarà anch’essa da scrivere in console */
 
-//chiedo all'utente il numero di chilometri da percorrere e lo assegno ad una variabile
+//assegno ad una variabile l'elemento input del DOM per i km 
+const kmInput = document.getElementById('km');
 
-//chiedo all'utente la sua età e la assegno ad una variabile
+//assegno ad una variabile l'elemento input del DOM per l'età
+const ageInput = document.getElementById('age');
+
+//assegno il prezzo euro per km ad una variabile
+const pricePerKm = 0.21;
+
 
 //richiamo l'elemento button dal DOM e lo assegno ad una variabile
+const submit = document.querySelector('button');
 
-//assegno alla variabile un eventListener con un evento ed una funzione
+//assegno alla variabile un eventListener con un evento ed una funzione anonima
+submit.addEventListener('click', function() {
+    //assegno ad una variabile il "value" dell'input dei km
+    const tripKm = kmInput.value;
+
+    //assegno ad una variabile il "value" dell'input dell'età
+    const passengerAge = ageInput.value;
+
+    //loggo nella console il recap dei dati
+    console.log(`Vuoi percorrere ${tripKm} km ed hai ${passengerAge} anni`);
+
+    //assegno ad una variabile il calcolo del prezzo totale
+    let totalPrice = tripKm * pricePerKm;
+
+    //dichiaro l'if statement per calcolare lo sconto in base all'età
+    if (passengerAge < 18) {
+        //assegno al totalPrice uno sconto del 20% se il passeggero è minorenne
+        const discount20 = totalPrice * 20 / 100;
+        totalPrice -= discount20;
+        console.log(`Al tuo biglietto è stato applicato uno sconto di € ${discount20.toFixed(2)}`);
+    } else if (passengerAge > 65) {
+        //assegno al totalPrice uno sconto del 20% se il passeggero è over 65
+        const discount40 = totalPrice * 40 / 100;
+        totalPrice -= discount40;
+        console.log(`Al tuo biglietto è stato applicato uno sconto di € ${discount40.toFixed(2)}`);
+    }
+
+    console.log(`Il prezzo finale del tuo biglietto è di € ${totalPrice.toFixed(2)}`);
+})
