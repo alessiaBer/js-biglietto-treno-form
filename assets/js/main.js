@@ -64,7 +64,7 @@ submit.addEventListener('click', function() {
     card.innerHTML = 
     `<div class="card mt-5">
     <div class="card-header d-flex align-items-center">
-        <img height="50px" src="../assets/css/British_Rail_-_colour_reversed_logo.svg.png">
+        <img height="50px" src="./assets/css/British_Rail_-_colour_reversed_logo.svg.png">
         <h2 class="mb-0 ps-3">BRITISH RAILWAYS</h2>
     </div>
     <div class="card-body">
