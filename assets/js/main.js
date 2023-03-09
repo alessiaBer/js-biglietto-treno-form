@@ -24,8 +24,8 @@ const ageInput = document.getElementById('select');
 const pricePerKm = 0.21;
 
 
-//richiamo l'elemento button dal DOM e lo assegno ad una variabile
-const submit = document.querySelector('button');
+//richiamo l'elemento button-submit dal DOM e lo assegno ad una variabile
+const submit = document.getElementById('generate');
 
 //assegno alla variabile un eventListener con un evento ed una funzione anonima
 submit.addEventListener('click', function() {
@@ -93,8 +93,11 @@ submit.addEventListener('click', function() {
     </div>`;
 })
 
-/* MILESTONE 2:
-Realizzare un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo.
-Il riepilogo dei dati inseriti e l'output del prezzo finale, andranno quindi stampati in pagina 
-(il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo). */
+//richiamo l'elemento button-reset dal DOM e lo assegno ad una variabile
+const reset = document.getElementById('reset');
+
+reset.addEventListener('click', function() {
+    nameInput.value = "";
+    kmInput.value = "";
+})
 
