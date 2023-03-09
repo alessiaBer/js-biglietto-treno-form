@@ -58,15 +58,16 @@ submit.addEventListener('click', function() {
     console.log(`Il prezzo finale del tuo biglietto è di € ${totalPrice.toFixed(2)}`);
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
 
-    const row = document.getElementById('card_container');
+    const cpCode = Math.floor(Math.random() * 10000) + 1000;
 
-    row.innerHTML = 
+    const card = document.getElementById('card_container');
+
+    card.innerHTML = 
     `<div class="card mt-5">
-    <div class="card-header">
+    <div class="card-header d-flex align-items-center">
         <img height="50px" src="https://creativereview.imgix.net/content/uploads/2011/03/BritishRailSymbol.jpg?auto=compress,format&q=60&w=300&h=210">
-        <h2 class="d-inline-block">BRITISH RAIL</h2>
+        <h2 class="mb-0 ps-3">BRITISH RAIL</h2>
     </div>
     <div class="card-body">
         <table class="table">
@@ -83,9 +84,9 @@ submit.addEventListener('click', function() {
                 <tr>
                     <th scope="row">${passengerName}</th>
                     <td>${passengerAge}</td>
-                    <td>${today.getUTCDate()}</td>
+                    <td>${today.getDay()}/${today.getMonth()}/${today.getFullYear()}</td>
                     <td>€ ${totalPrice.toFixed(2)}</td>
-                    <td>//mathrandom</td>
+                    <td>${cpCode}</td>
                 </tr>
             </tbody>
         </table>
