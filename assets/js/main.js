@@ -7,10 +7,6 @@ il prezzo del biglietto è definito in base ai km (0.21 € al km)
 va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65 */
 
-/* MILESTONE 1:
-Iniziamo implementando il programma senza alcuna estetica ma usando esclusivamente due input e un bottone (non stilizzati), 
-realizziamo le specifiche scritte sopra.
-La risposta finale (o output) sarà anch’essa da scrivere in console */
 //assegno ad una variabile l'elemento input del DOM per il nome
 const nameInput = document.getElementById('name');
 
@@ -33,6 +29,7 @@ submit.addEventListener('click', function() {
     const passengerName = nameInput.value;
     //assegno ad una variabile il "value" dell'input dei km
     const tripKm = kmInput.value;
+
     //assegno ad una variabile il "value" dell'input dell'età
     let passengerAge = ageInput.value;
 
@@ -55,14 +52,15 @@ submit.addEventListener('click', function() {
         console.log(`Al tuo biglietto è stato applicato uno sconto di € ${discount40.toFixed(2)}`);
     }
 
-    console.log(`Il prezzo finale del tuo biglietto è di € ${totalPrice.toFixed(2)}`);
-
+    //assegno ad una variabile un nuovo Date()
     const today = new Date();
 
+    //assegno ad una variabile il valore random che deve avere il cpCode
     const cpCode = Math.floor(Math.random() * 10000) + 1000;
 
+    //richiamo l'elemento #card_container nel DOM e lo assegno ad una variabile
     const card = document.getElementById('card_container');
-
+    //inserisco codice html tramite la proprietà .innerHTML
     card.innerHTML = 
     `<div class="card mt-5">
     <div class="card-header d-flex align-items-center">
@@ -93,8 +91,9 @@ submit.addEventListener('click', function() {
     </div>
     `;
 
+    //richiamo l'elemento #download_container del DOM e lo assegno ad una variabile
     const downloadBtn = document.getElementById('download_container');
-
+    //inserisco codice html tramite la proprietà .innerHTML
     downloadBtn.innerHTML = `
     <button type="button" class="btn btn-light text-primary mt-3">
         <i class="fa-solid fa-download"></i>
@@ -104,7 +103,7 @@ submit.addEventListener('click', function() {
 
 //richiamo l'elemento button-reset dal DOM e lo assegno ad una variabile
 const reset = document.getElementById('reset');
-
+//assegno alla variabile un eventListener con un evento ed una funzione anonima
 reset.addEventListener('click', function() {
     nameInput.value = "";
     kmInput.value = "";
