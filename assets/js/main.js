@@ -11,13 +11,14 @@ va applicato uno sconto del 40% per gli over 65 */
 Iniziamo implementando il programma senza alcuna estetica ma usando esclusivamente due input e un bottone (non stilizzati), 
 realizziamo le specifiche scritte sopra.
 La risposta finale (o output) sarà anch’essa da scrivere in console */
+//assegno ad una variabile l'elemento input del DOM per il nome
+const nameInput = document.getElementById('name');
 
 //assegno ad una variabile l'elemento input del DOM per i km 
 const kmInput = document.getElementById('km');
 
 //assegno ad una variabile l'elemento input del DOM per l'età
 const ageInput = document.getElementById('select');
-console.log(ageInput);
 
 //assegno il prezzo euro per km ad una variabile
 const pricePerKm = 0.21;
@@ -28,9 +29,10 @@ const submit = document.querySelector('button');
 
 //assegno alla variabile un eventListener con un evento ed una funzione anonima
 submit.addEventListener('click', function() {
+    //assegno ad una variabile il "value" dell'input del nome
+    const passengerName = nameInput.value;
     //assegno ad una variabile il "value" dell'input dei km
     const tripKm = kmInput.value;
-
     //assegno ad una variabile il "value" dell'input dell'età
     let passengerAge = ageInput.value;
 
@@ -54,6 +56,40 @@ submit.addEventListener('click', function() {
     }
 
     console.log(`Il prezzo finale del tuo biglietto è di € ${totalPrice.toFixed(2)}`);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const row = document.getElementById('card_container');
+
+    row.innerHTML = 
+    `<div class="card mt-5">
+    <div class="card-header">
+        <img height="50px" src="https://creativereview.imgix.net/content/uploads/2011/03/BritishRailSymbol.jpg?auto=compress,format&q=60&w=300&h=210">
+        <h2 class="d-inline-block">BRITISH RAIL</h2>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Ticket Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">CP code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">${passengerName}</th>
+                    <td>${passengerAge}</td>
+                    <td>${today.getUTCDate()}</td>
+                    <td>€ ${totalPrice.toFixed(2)}</td>
+                    <td>//mathrandom</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>`;
 })
 
 /* MILESTONE 2:
