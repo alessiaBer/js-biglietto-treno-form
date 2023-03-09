@@ -75,22 +75,31 @@ submit.addEventListener('click', function() {
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Ticket Type</th>
-                    <th scope="col">Date</th>
+                    <th class="collapse d-md-table-cell" scope="col">Date</th>
                     <th scope="col">Price</th>
-                    <th scope="col">CP code</th>
+                    <th class="collapse d-md-table-cell" scope="col">CP code</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">${passengerName}</th>
                     <td>${passengerAge}</td>
-                    <td>${today.getDay()}/${today.getMonth()}/${today.getFullYear()}</td>
+                    <td class="collapse d-md-table-cell">${today.getDay()}/${today.getMonth()}/${today.getFullYear()}</td>
                     <td>€ ${totalPrice.toFixed(2)}</td>
-                    <td>${cpCode}</td>
+                    <td class="collapse d-md-table-cell">${cpCode}</td>
                 </tr>
             </tbody>
         </table>
-    </div>`;
+    </div>
+    `;
+
+    const downloadBtn = document.getElementById('download_container');
+
+    downloadBtn.innerHTML = `
+    <button type="button" class="btn btn-light text-primary mt-3">
+        <i class="fa-solid fa-download"></i>
+        Download
+    </button>`
 })
 
 //richiamo l'elemento button-reset dal DOM e lo assegno ad una variabile
