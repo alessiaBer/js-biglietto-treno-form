@@ -16,7 +16,8 @@ La risposta finale (o output) sarà anch’essa da scrivere in console */
 const kmInput = document.getElementById('km');
 
 //assegno ad una variabile l'elemento input del DOM per l'età
-const ageInput = document.getElementById('age');
+const ageInput = document.getElementById('select');
+console.log(ageInput);
 
 //assegno il prezzo euro per km ad una variabile
 const pricePerKm = 0.21;
@@ -31,21 +32,21 @@ submit.addEventListener('click', function() {
     const tripKm = kmInput.value;
 
     //assegno ad una variabile il "value" dell'input dell'età
-    const passengerAge = ageInput.value;
+    let passengerAge = ageInput.value;
 
     //loggo nella console il recap dei dati
-    console.log(`Vuoi percorrere ${tripKm} km ed hai ${passengerAge} anni`);
+    console.log(`Vuoi percorrere ${tripKm} km e sei ${passengerAge}`);
 
     //assegno ad una variabile il calcolo del prezzo totale
     let totalPrice = tripKm * pricePerKm;
 
     //dichiaro l'if statement per calcolare lo sconto in base all'età
-    if (passengerAge < 18) {
+    if (passengerAge === 'under_18') {
         //assegno al totalPrice uno sconto del 20% se il passeggero è minorenne
         const discount20 = totalPrice * 20 / 100;
         totalPrice -= discount20;
         console.log(`Al tuo biglietto è stato applicato uno sconto di € ${discount20.toFixed(2)}`);
-    } else if (passengerAge > 65) {
+    } else if (passengerAge === 'over_65') {
         //assegno al totalPrice uno sconto del 20% se il passeggero è over 65
         const discount40 = totalPrice * 40 / 100;
         totalPrice -= discount40;
@@ -54,3 +55,9 @@ submit.addEventListener('click', function() {
 
     console.log(`Il prezzo finale del tuo biglietto è di € ${totalPrice.toFixed(2)}`);
 })
+
+/* MILESTONE 2:
+Realizzare un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo.
+Il riepilogo dei dati inseriti e l'output del prezzo finale, andranno quindi stampati in pagina 
+(il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo). */
+
