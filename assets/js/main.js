@@ -12,3 +12,10 @@ Iniziamo implementando il programma senza alcuna estetica ma usando esclusivamen
 realizziamo le specifiche scritte sopra.
 La risposta finale (o output) sarà anch’essa da scrivere in console */
 
+//chiedo all'utente il numero di chilometri da percorrere e lo assegno ad una variabile
+
+//chiedo all'utente la sua età e la assegno ad una variabile
+
+//richiamo l'elemento button dal DOM e lo assegno ad una variabile
+
+//assegno alla variabile un eventListener con un evento ed una funzione
